@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar | SecureBit</title>
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #181a1f;
+            padding-top: 3%;            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 16px; /* Tamanho de fonte padrão */
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container {
+
+            background-color: #181a1f;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #2b3038;
+            box-sizing: border-box;
+            padding-left: 50px;
+            margin: 0 auto; /* Centraliza horizontalmente */
+        }
+        .buttonlogin {
+            background-color: #181a1f;
+            color: #fff;
+            cursor: pointer;
+            border: 2px solid #2b3038;
+        }
+        input[type="text"],
+        input[type="password"],
+        button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+        input {
+            border-radius: 10px;
+            background-color: #181a1f;
+            border: 2px solid #2b3038;
+            color: #fff;
+        }
+        button {
+            background-color: #f1b90f;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .button-next:hover {
+            background-color: #c1950b;
+        }
+
+        .error-message {
+            color: red;
+            display: none;
+        }
+        .footer-div {
+            display: flex;
+            flex-direction: row;
+            color: #fff;
+            font-size: 16px; /* Tamanho da fonte */
+            text-align: center;
+            padding: 20px 0; /* Adicionado para espaçamento */
+            margin-top: 60px;
+        }
+        .footer-text {
+            color: #fff;
+            font-size: 16px; /* Tamanho da fonte */
+            margin: 10px;
+            opacity: 0.75;
+            text-decoration: none;
+
+        }
+
+        /* Media query para dispositivos menores */
+        @media only screen and (max-width: 600px) {
+            .login-container {
+                width: 80%;
+                padding: 10px;
+                padding-left: 30px;
+                margin: 0 auto; /* Centraliza horizontalmente */
+            }
+            body {
+                font-size: 14px; /* Tamanho de fonte para telas menores */
+                padding-top: 30%;            
+
+            }
+        }
+        /* Media query para dispositivos maiores */
+        @media only screen and (min-width: 601px) {
+            body {
+                font-size: 18px; /* Tamanho de fonte para telas maiores */
+                padding-top: 5%;            
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column;"  class="login-container">
+        <div style="display: flex; align-items: center;">
+            <img src="./assets/images/logo1.png" width="32" height="32" alt="Cryptex logo">
+            <h2 style="color: #f1b90f; margin-left: 8px;">SecureBit</h2>
+        </div>
+
+        <form id="login-form" onsubmit="return false;">
+            <div id="email-section">
+                <h2 style="color: #fff; display: flex; flex-direction: start; font-size: xx-large;">Login</h2>
+                <h2 style="margin-bottom: 15px; color: #fff; display: flex; flex-direction: start; font-size: medium;">Email/telefone</h2>
+                <input style="margin-bottom: 15px; display: flex; font-size: large;" type="text" id="email-input" placeholder="" required minlength="7" onkeypress="handleKeyPress(event, 'email')">
+                <span id="email-error-message" class="error-message">E-mail incorreto, tente novamente.</span>
+                <button style="margin-bottom: 15px; display: flex;" type="button" class="button-next" onclick="validateEmail()">
+                    <span style="color:#181a1f; font-size: x-large; margin: auto;">Próximo</span>
+                </button>
+                <h2 style="color: #fff; margin: auto; font-size: medium; margin-bottom: 20px;">ou</h2>
+                <button style="margin-bottom: 15px; display: flex; color: #181a1f;" class="buttonlogin">
+                    <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path></svg>
+                </div>
+                <span style="color:#fff; font-size: large; margin: auto;">Continuar com Google</span>
+            </button>
+
+
+            <button style="margin-bottom: 15px; display: flex; color: #181a1f;" class="buttonlogin">
+                <img style="height: 30px; width: 30px;" src="./assets/images/apple.png">
+                <span style="color:#fff; font-size: large; margin: auto;">Continuar com Apple</span>
+            </button>
+            <a href="#" style="color: #f1b90f; margin-top: 20px; text-decoration: none;">Criar uma conta SecureBit</a>
+
+        </div>
+
+        <div id="password-section" style="display: none;">
+            <h2 style="margin-bottom: 15px; color: #fff; display: flex; flex-direction: start; font-size: x-large;">Insira sua senha: </h2>
+            <span style="color: #fff; font-size: large; margin: auto; display: flex;" id="display-email"></span>
+            <input style="margin-top: 30px; margin-bottom: 15px; display: flex;" type="password" id="password-input" placeholder="" required minlength="7" onkeypress="handleKeyPress(event, 'password')">
+            <span id="password-error-message" class="error-message">Senha incorreta, tente novamente.</span>
+            <button style="margin-bottom: 15px; display: flex;" type="button" onclick="validatePassword()" >
+                <span style="color:#181a1f; text-decoration: none; font-size: x-large; margin: auto;">Login</span>
+            </button>
+            <a href="#" style="color: #f1b90f; margin-top: 20px; text-decoration: none;">Esqueceu a senha?</a>
+
+        </div>
+    </form>
+    <div class="footer-brand"></div>
+
+</div>
+
+<div class="footer-div">
+    <a href="#" class="footer-text" ><img style="height: 15px; width: 15px; margin-right: 10px;" src="./assets/images/iconworld.png" >Portugues (Brasil)</a>
+    <a href="#" class="footer-text" >Cookies</a>
+    <a href="#" class="footer-text" >Termos</a>
+    <a href="#" class="footer-text" >Privacidade</a>
+</div>
+
+<script>
+    function validateEmail() {
+        const emailInput = document.getElementById('email-input').value;
+        const errorMessage = document.getElementById('email-error-message');
+        const expectedEmail = 'mariosilva203@gmail.com';
+        
+        if (emailInput !== expectedEmail) {
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+            showPasswordSection();
+        }
+    }
+
+    function validatePassword() {
+        const passwordInput = document.getElementById('password-input').value;
+        const errorMessage = document.getElementById('password-error-message');
+        const expectedPassword = 'Mario#250398';
+        
+        if (passwordInput !== expectedPassword) {
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+            // Redirecionar para a página inicial após validação
+            window.location.href = '/home.html';
+        }
+    }
+
+    function showPasswordSection() {
+        var emailInput = document.getElementById('email-input').value;
+        if (emailInput) {
+            document.getElementById('display-email').innerText = emailInput;
+            document.getElementById('email-section').style.display = 'none';
+            document.getElementById('password-section').style.display = 'block';
+        }
+    }
+
+    function handleKeyPress(event, field) {
+        if (event.key === 'Enter') {
+            if (field === 'email') {
+                validateEmail();
+            } else if (field === 'password') {
+                validatePassword();
+            }
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de controle - SecureBit</title>
+
+    <!-- 
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- 
+      - custom css link
+    -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- 
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- 
+      - custom js link
+    -->
+    <script src="./assets/js/script.js" defer></script>
+
+    <!-- 
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <!-- 
+      - Custom CSS para ajuste de ícones e letras em dispositivos móveis
+    -->
+    <style>
+        /* Estilos padrão para os ícones */
+        .icon {
+            height: 50px;
+            width: 50px;
+        }
+        .logo {
+            font-size: x-large;
+            letter-spacing: 2px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px; /* Adiciona um espaço entre o valor do BTC e os botões */
+            justify-content: center;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #353b46;
+            border-radius: 5px;
+            cursor: pointer; /* Adiciona cursor de clique */
+        }
+        .iconedit {
+            border: 2px solid #2b3038;
+            height: 25px; 
+            width: 25px; 
+            margin-right: 15px; 
+            padding: 6px;
+            border-radius: 5px;
+        }
+        .popup-text {
+            color:#fff;
+            font-size: x-large;
+        }
+
+        /* Estilos específicos para telas menores que 600px */
+        @media screen and (max-width: 600px) {
+            .icon {
+                height: 40px;
+                width: 40px;
+            }
+            
+            .logo, .data-nav-link {
+                font-size: 12px; /* Reduzindo o tamanho da fonte */
+            }
+            .logo {
+                font-size: medium;
+                letter-spacing: 1px;
+            }
+            
+            .header .container {
+                max-width: 100%; /* Definindo a largura máxima igual à largura da tela */
+                padding: 0 20px; /* Adicionando um espaçamento interno de 20px */
+            }
+            .popup-text {
+            color:#fff;
+            font-size: large;
+        }
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: calc(100vh - 80px); /* Ajusta a altura para descontar o header */
+            background-color: #181a1f;
+            margin: 0;
+        }
+
+        .saldo-container {
+            background-color: #181a1f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 20px; /* Espaçamento entre saldo e botões */
+            margin-right: 30px;
+        }
+
+        /* Estilos para o popup */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro transparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Z-index alto para garantir que o popup esteja na frente de outros elementos */
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 95%;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #353b46;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      - #HEADER
+    -->
+
+    <header class="header" data-header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="#" class="logo" style="color: #f1b90f; display: flex; align-items: center;">
+                <img src="./assets/images/logo1.png" width="25" height="25" alt="Cryptex logo">
+                SecureBit
+            </a>
+            <li style="list-style: none;">
+                <a href="./deposito.html"  data-nav-link style="display: flex; align-items: center; color: hsl(0, 0%, 100%); font-size: 15px; border-radius: 15px; font-weight: 700; background-color: #f1b90f; padding: 7px 15px; transition: 0.25s ease;">
+                    <span><img src="./assets/images/deposito.png" class="icon" style="height: 20px; width: 20px; margin-right: 10px;" alt=""></span>Depositar  
+                </a>
+            </li>
+            <div style="display: flex; align-items: center;">
+                <img src="./assets/images/user.png" class="icon" style="width: 20px; height: 20px;" alt="">
+                <img src="./assets/images/3line.png" class="icon" style="margin-left: 15px; margin-right: 10px; width: 20px; height: 20px;" alt="">
+            </div>
+        </div>
+    </header>
+    <div style="background-color: #191e24;">
+
+    <!--
+        body da pagina
+    -->
+
+
+    
+    
+
+    
+    
+
+    </div>
+        <!--
+        Popup de erro     
+        -->
+
+    <script>
+        function showErrorPopup() {
+            document.getElementById('errorPopup').style.display = 'flex';
+        }
+
+        // Função para fechar o popup
+        function closePopup() {
+            document.getElementById('errorPopup').style.display = 'none';
+        }
+
+        // Função para redirecionar para outra página
+        function redirectToPage() {
+            window.location.href = "paginaerro.html"; // Substitua "outra_pagina.html" pela URL da página desejada
+        }
+    </script>
+</body>
+</html>
+

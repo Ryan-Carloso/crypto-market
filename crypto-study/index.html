@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>SecureBit - Compre e venda Cryptos na SecureBit!</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/logo1.png" width="32" height="32" alt="Cryptex logo">
+        SecureBit
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link active" data-nav-link>Página Inicial</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Comprar</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Mercados</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Vender</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+        
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>BITUSDT</a>
+          </li>
+        
+        </ul>
+        
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <a href="/login.html" class="btn btn-outline">Login</a>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="hero" data-section>
+        <div class="container">
+
+          <div class="hero-content">
+
+            <h1 class="h1 hero-title">Compre e venda Cryptos na SecureBit!</h1>
+
+            <p class="hero-text">
+              SecureBit é a maneira mais facil e segura para comprar e vender criptomoedas!
+            </p>
+
+            <a href="/login.html" class="btn btn-primary">Comece agora!</a>
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="./assets/images/hero-banner.png" width="570" height="448" alt="hero banner" class="w-100">
+          </figure>
+
+        </div>
+      </section>
+
+
+      <body>
+      <!-- TREND section -->
+    <section  class="section trend" aria-label="crypto trend" data-section>
+      <div class="container">
+          <div class="trend-tab">
+
+            <ul class="tab-nav">
+
+              <li>
+                <button class="tab-btn active">Crypto</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">DeFi</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">BSC</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">NFT</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Metaverse</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Polkadot</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Solana</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Opensea</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Makersplace</button>
+              </li>
+
+            </ul>
+              
+              <ul class="tab-content">
+                <li>
+                  <div class="trend-card" id="bitcoin-card">
+                    <div class="card-title-wrapper">
+                      <img src="./assets/images/coin-1.svg" width="24" height="24" alt="bitcoin logo">
+                      <a href="#" class="card-title">Bitcoin <span class="span">BTC/USD</span></a>
+                    </div>
+                    <table>
+                      <tr style="color: white; font-size: 17px; font-weight: bold;">
+                        <td class="table-data">Preço:</td>
+                        <td class="table-data last-price" id="bitcoin-price">$23000</td>
+                        <td class="table-data" id="bitcoin-change-24h">0.00%</td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li>
+                  <div class="trend-card" id="ethereum-card">
+                    <div class="card-title-wrapper">
+                      <img src="./assets/images/coin-2.svg" width="24" height="24" alt="ethereum logo">
+                      <a href="#" class="card-title">Ethereum <span class="span">ETH/USD</span></a>
+                    </div>
+                    <table>
+                      <tr style="color: white; font-size: 17px; font-weight: bold;">
+                        <td class="table-data">Preço:</td>
+                        <td class="table-data last-price" id="ethereum-price">$0.00</td>
+                        <td class="table-data" id="ethereum-change-24h">0.00%</td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li>
+                  <div class="trend-card" id="tether-card">
+                    <div class="card-title-wrapper">
+                      <img src="./assets/images/coin-3.svg" width="24" height="24" alt="tether logo">
+                      <a href="#" class="card-title">Tether <span class="span">USDT/USD</span></a>
+                    </div>
+                    <table>
+                      <tr style="color: white; font-size: 17px; font-weight: bold;">
+                        <td class="table-data">Preço:</td>
+                        <td class="table-data last-price" id="tether-price">$0.00</td>
+                        <td class="table-data" id="tether-change-24h">0.00%</td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+                <li>
+                  <div class="trend-card" id="bnb-card">
+                    <div class="card-title-wrapper">
+                      <img src="./assets/images/coin-4.svg" width="24" height="24" alt="bnb logo">
+                      <a href="#" class="card-title">BNB <span class="span">BNB/USD</span></a>
+                    </div>
+                    <table>
+                      <tr style="color: white; font-size: 17px; font-weight: bold;">
+                        <td class="table-data">Preço:</td>
+                        <td class="table-data last-price" id="bnb-price">$0.00</td>
+                        <td class="table-data" id="bnb-change-24h">0.00%</td>
+                      </tr>
+                    </table>
+                  </div>
+                </li>
+              </ul>
+              
+
+
+          </div>
+
+      </div>
+
+    </section>
+
+    <!-- Adicione a tag script para o arquivo JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      // Função para atualizar os preços das criptomoedas e a porcentagem de mudança
+      function updateCryptoPrices() {
+          // Fazendo solicitação HTTP para a API da CoinGecko usando Axios
+          axios.get('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether,SecureBitcoin&vs_currencies=brl&include_24hr_change=true')
+          .then(response => {
+              // Processando a resposta
+              const data = response.data;
+              
+              // Atualizando os preços das criptomoedas e a porcentagem de mudança
+              updateCryptoCard('bitcoin', data.bitcoin.brl, data.bitcoin.brl_24h_change);
+              updateCryptoCard('ethereum', data.ethereum.brl, data.ethereum.brl_24h_change);
+              updateCryptoCard('tether', data.tether.brl, data.tether.brl_24h_change);
+              updateCryptoCard('bnb', data.SecureBitcoin.brl, data.SecureBitcoin.brl_24h_change);
+          })
+          .catch(error => {
+              console.error('Erro ao obter dados:', error);
+          });
+      }
+    
+      // Função para atualizar os preços e a porcentagem de mudança de uma criptomoeda específica
+      function updateCryptoCard(cryptoId, price, change) {
+          const priceElement = document.getElementById(`${cryptoId}-price`);
+          const change24hElement = document.getElementById(`${cryptoId}-change-24h`);
+          
+          // Atualizando o preço
+          priceElement.innerText = `R$ ${price.toFixed(2)}`;
+          
+          // Atualizando a porcentagem de mudança (24h)
+          change24hElement.innerText = `${change.toFixed(2)}%`;
+          if (change >= 0) {
+              change24hElement.classList.add('positive-change');
+          } else {
+              change24hElement.classList.add('negative-change');
+          }
+      }
+    
+      // Chamando a função para atualizar os preços assim que a página carregar
+      window.onload = function() {
+          updateCryptoPrices();
+          // Atualizando os preços a cada 1 minuto (60000 milissegundos)
+          setInterval(updateCryptoPrices, 60000);
+      };
+    </script>    
+    </body>    
+
+    <div style="background-color: #131315; padding: 5px;"></div>
+
+    <section class="section instruction" aria-label="instrução" data-section>
+      <div class="container">
+    
+        <h2 style="margin-top: -50px" class="h2 section-title">Como Funciona</h2>
+    
+        <p class="section-text">
+          Siga estes passos simples para começar a investir em criptomoedas com a SecureBit.
+        </p>
+    
+        <ul class="instruction-list">
+    
+          <li>
+            <div class="instruction-card">
+    
+              <figure class="card-banner">
+                <img src="./assets/images/instruction-1.png" width="96" height="96" loading="lazy" alt="Passo 1" class="img">
+              </figure>
+    
+              <p class="card-subtitle">Passo 1</p>
+    
+              <h3 class="h3 card-title">Criar Conta e Conectar Carteira</h3>
+    
+              <p class="card-text">
+                Crie uma conta na SecureBit e conecte sua carteira digital.
+              </p>
+    
+            </div>
+          </li>
+    
+          <li>
+            <div class="instruction-card">
+    
+              <figure class="card-banner">
+                <img src="./assets/images/instruction-2.png" width="96" height="96" loading="lazy" alt="Passo 2" class="img">
+              </figure>
+    
+              <p class="card-subtitle">Passo 2</p>
+    
+              <h3 class="h3 card-title">Fazer um Depósito</h3>
+    
+              <p class="card-text">
+                Deposite fundos na sua conta usando transferência bancária, cartão de crédito ou criptomoedas.
+              </p>
+    
+            </div>
+          </li>
+    
+          <li>
+            <div class="instruction-card">
+    
+              <figure class="card-banner">
+                <img src="./assets/images/instruction-3.png" width="96" height="96" loading="lazy" alt="Passo 3" class="img">
+              </figure>
+    
+              <p class="card-subtitle">Passo 3</p>
+    
+              <h3 class="h3 card-title">Escolher e Negociar Criptomoedas</h3>
+    
+              <p class="card-text">
+                Estude as criptomoedas e use a plataforma da SecureBit para negociar.
+              </p>
+    
+            </div>
+          </li>
+    
+          <li>
+            <div class="instruction-card">
+    
+              <figure class="card-banner">
+                <img src="./assets/images/instruction-4.png" width="96" height="96" loading="lazy" alt="Passo 4" class="img">
+              </figure>
+    
+              <p class="card-subtitle">Passo 4</p>
+    
+              <h3 class="h3 card-title">Gerenciar Portfólio e Sacar Ganhos</h3>
+    
+              <p class="card-text">
+                Monitore seus investimentos e saque seus fundos quando desejar.
+              </p>
+    
+            </div>
+          </li>
+    
+        </ul>
+    
+      </div>
+    </section>
+    
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" aria-label="about" data-section>
+        <div class="container">
+
+          <figure class="about-banner">
+            <img src="./assets/images/about-banner.png" width="748" height="436" loading="lazy" alt="about banner"
+              class="w-100">
+          </figure>
+
+          <div class="about-content">
+
+            <h2 class="h2 section-title">O que é a SecureBit?</h2>
+
+            <p class="section-text">
+              Experimente uma variedade de negociações na SecureBit. Você pode utilizar diversos tipos de transações com moedas, como Negociação à Vista (Spot Trade), Futuros (Futures Trade), P2P, Staking, Mineração (Mining) e Margem (Margin).
+            </p>
+            
+
+            <ul class="section-list">
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+            
+                  <h3 class="h3 list-title">Veja os preços das criptomoedas em tempo real</h3>
+                </div>
+            
+                <p class="item-text">
+                  Experimente uma variedade de negociações na SecureBit. Você pode utilizar diversos tipos de transações com moedas, como Negociação à Vista (Spot Trade), Futuros (Futures Trade), P2P, Staking, Mineração (Mining) e Margem (Margin).
+                </p>
+              </li>
+            
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+            
+                  <h3 class="h3 list-title">Compre e venda BTC, ETH, XRP, OKB, etc...</h3>
+                </div>
+            
+                <p class="item-text">
+                  Experimente uma variedade de negociações na SecureBit. Você pode utilizar diversos tipos de transações com moedas, como Negociação à Vista (Spot Trade), Futuros (Futures Trade), P2P, Staking, Mineração (Mining) e Margem (Margin).
+                </p>
+              </li>
+            
+            </ul>
+            
+
+            <a href="/login.html" class="btn btn-primary">Conheça mais</a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #APP
+      -->
+
+      <section class="section app" aria-label="app" data-section>
+        <div class="container">
+
+          <div class="app-content">
+
+            <h2 class="h2 section-title">Liberte seu dinheiro e invista com confiança</h2>
+          
+            <p class="section-text">
+              Com A SecureBit, você pode ter certeza de que suas habilidades de negociação estão combinadas.
+            </p>
+          
+            <ul class="section-list">
+          
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+          
+                  <h3 class="h3 item-title">Compre, venda e negocie em qualquer lugar</h3>
+                </div>
+          
+                <p class="item-text">
+                  Gerencie seus investimentos do seu dispositivo móvel.
+                </p>
+              </li>
+          
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+          
+                  <h3 class="h3 item-title">Assuma o controle da sua riqueza</h3>
+                </div>
+          
+                <p class="item-text">
+                  Tenha a certeza de que você (e somente você) tem acesso aos seus fundos.
+                </p>
+              </li>
+          
+            </ul>
+          
+            <div class="app-wrapper">
+              <a href="#">
+                <img src="./assets/images/googleplay.png" width="135" height="40" loading="lazy"
+                  alt="obtenha no Google Play">
+              </a>
+          
+              <a href="#">
+                <img src="./assets/images/appstore.png" width="120" height="40" loading="lazy"
+                  alt="baixe na App Store">
+              </a>
+            </div>
+          
+          </div>
+          
+          <div class="app-banner">
+            <img src="./assets/images/app-banner.png" width="618" height="526" loading="lazy" alt="banner do aplicativo"
+              class="w-100">
+          
+            <span class="span">Escane para baixar</span>
+          </div>          
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top" data-section>
+      <div class="container">
+    
+        <div class="footer-brand">
+    
+          <a href="#" class="logo">
+            <img src="./assets/images/logo1.png" width="50" height="50" alt="Logotipo da SecureBit">
+            SecureBit
+          </a>
+    
+          <h2 class="footer-title">Vamos conversar! 🤙</h2>
+    
+          <a href="tel:+123456789101" class="footer-contact-link">+1 (888) 908-1239</a>
+    
+          <a href="mailto:hello.cryptex@gmail.com" class="footer-contact-link">suporte@SecureBit.com</a>
+    
+          <address class="footer-contact-link">
+            Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
+          </address>
+    
+        </div>
+    
+        <ul class="footer-list">
+    
+          <li>
+            <p class="footer-list-title">Produtos</p>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Spot</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Perpetual Inverso</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Perpetual USDT</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Exchange</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Launchpad</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">SecureBit Pay</a>
+          </li>
+    
+        </ul>
+    
+        <ul class="footer-list">
+    
+          <li>
+            <p class="footer-list-title">Serviços</p>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Comprar Criptomoeda</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Mercados</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Taxa de Negociação</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Programa de Afiliados</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Programa de Referência</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">API</a>
+          </li>
+    
+        </ul>
+    
+        <ul class="footer-list">
+    
+          <li>
+            <p class="footer-list-title">Suporte</p>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Aprender com a SecureBit</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Centro de Ajuda</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Feedback do Usuário</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Enviar uma Solicitação</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Documentação da API</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Regras de Negociação</a>
+          </li>
+    
+        </ul>
+    
+        <ul class="footer-list">
+    
+          <li>
+            <p class="footer-list-title">Sobre Nós</p>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Sobre a SecureBit</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Verificação de Autenticidade</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Carreiras</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Contatos Empresariais</a>
+          </li>
+    
+          <li>
+            <a href="#" class="footer-link">Blog</a>
+          </li>
+    
+        </ul>
+    
+      </div>
+    </div>
+    
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2022 SecureBit All Rights Reserved by <a href="#" class="copyright-link">SecureBit</a>
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+        <!-- #MARKET -->
+
+  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+  </button>
+  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+  </button>
+  <div style="margin: 0; padding: 0;">
+    <iframe style=" border: 0; margin: 0; padding: 0; width: 100%; height: 100%;" src="./indexdata.html"></iframe>
+  </div>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+
+
+</html>

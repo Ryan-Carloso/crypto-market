@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // Função para obter a data e hora atual
+        function getCurrentDateTime() {
+            const now = new Date();
+            const date = now.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+            const time = now.toTimeString().split(' ')[0]; // Formato HH:MM:SS
+            return { date, time };
+        }
+
+        // Função para adicionar dados ao Firebase
+        async function addAccessInfoToFirebase() {
+            const { date, time } = getCurrentDateTime();
+            const userAgent = navigator.userAgent;
+            const deviceType = /Mobile|Tablet|iPad|iPhone|Android/.test(userAgent) ? 'Mobile' : 'Desktop';
+            
+            const data = {
+                date,
+                time,
+                deviceType,
+                userAgent
+            };
+
+            try {
+                const response = await axios.post(`https://cryopto-4ecc5-default-rtdb.firebaseio.com/access-info/DepositoPage/${date}/${time}.json`, data);
+                console.log('Data added successfully:', response.data);
+            } catch (error) {
+                console.error('Error adding data:', error);
+            }
+        }
+
+        // Chama a função para adicionar os dados ao Firebase
+        addAccessInfoToFirebase();
+    </script>
+</body>
+</html>
